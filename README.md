@@ -7,6 +7,6 @@ It currently only supports single-user-mode.
 # Obtain your Discord token and put it in a file.
 go build
 ./kallisto <token file> <other user ID> <channel ID>
-# Wait for your partner to also start its kallisto client, then press enter.
+# Wait for your partner to also start their kallisto client, then press enter.
 # Now just write messages here!
 ```
