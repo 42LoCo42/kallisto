@@ -8,7 +8,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/42LoCo42/go-zeolite/zeolite"
+	"github.com/42LoCo42/go-zeolite"
 	"github.com/42LoCo42/z85m"
 	"github.com/bwmarrin/discordgo"
 )
@@ -82,7 +82,7 @@ func main() {
 			}
 			panic(err)
 		}
-		stream.Send([]byte(line))
+		stream.Send([]byte(strings.TrimSpace(line)))
 	}
 
 	log.Print("Shutting down...")
@@ -113,11 +113,7 @@ func mkAdapter(channel chan string, channelID string, discord *discordgo.Session
 }
 
 func (a *Adapter) Read(p []byte) (n int, err error) {
-	// log.Print("read count  ", a.ReadCount)
-	// log.Print("msg buf len ", len(a.MsgBuf))
-
 	if len(a.MsgBuf) > 0 {
-		// log.Print("from buf")
 		n := copy(p, a.MsgBuf)
 		a.MsgBuf = []byte{}
 		return n, nil
@@ -133,7 +129,6 @@ func (a *Adapter) Read(p []byte) (n int, err error) {
 		a.ReadCount++
 		return copy(p, dec), nil
 	} else {
-		// log.Print("first 4 | ", len(dec))
 		a.MsgBuf = dec[4:]
 		return copy(p, dec[:4]), nil
 	}

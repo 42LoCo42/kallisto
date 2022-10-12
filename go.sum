@@ -1,5 +1,5 @@
-github.com/42LoCo42/go-zeolite v0.0.0-20221010143444-a9d404a0c0b7 h1:zXZ0T0plAErYidn2u/YLivFqAUoR1WsLWy0+7lkdUK8=
-github.com/42LoCo42/go-zeolite v0.0.0-20221010143444-a9d404a0c0b7/go.mod h1:/ssk1oZyowk8Lwsh6iC/Pl26Sxv3nLAD5DVJMKNKDFY=
+github.com/42LoCo42/go-zeolite v0.0.0-20221012103015-4dbc28d02770 h1:O28uEHDfwXt8Yewr3MEiqOLRj7Xu9Rwv0mP4eSLBZrs=
+github.com/42LoCo42/go-zeolite v0.0.0-20221012103015-4dbc28d02770/go.mod h1:/ssk1oZyowk8Lwsh6iC/Pl26Sxv3nLAD5DVJMKNKDFY=
 github.com/42LoCo42/z85m v0.0.0-20221002172057-ad76ab18fd2c h1:Zw4E1CKcEyPyRJNQz0x/QEuzElLJPp3RbDwufgdBYAw=
 github.com/42LoCo42/z85m v0.0.0-20221002172057-ad76ab18fd2c/go.mod h1:uij7pK0RRJ65Ck55fUdEQ8ratqleWFcNr5b/aWkTHaA=
 github.com/bwmarrin/discordgo v0.26.1 h1:AIrM+g3cl+iYBr4yBxCBp9tD9jR3K7upEjl0d89FRkE=
