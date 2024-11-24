@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"io"
-	"io/ioutil"
 	"log"
 	"os"
 	"strings"
@@ -28,7 +27,7 @@ func main() {
 	}
 	_ = ident
 
-	token, err := ioutil.ReadFile(tokenFile)
+	token, err := os.ReadFile(tokenFile)
 	if err != nil {
 		panic(err)
 	}
