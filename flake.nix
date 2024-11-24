@@ -1,16 +1,38 @@
 {
-  outputs = { flake-utils, nixpkgs, ... }:
+  inputs.nix-appimage = {
+    url = "github:42LoCo42/nix-appimage";
+    inputs = {
+      flake-utils.follows = "flake-utils";
+      nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = { flake-utils, nixpkgs, nix-appimage, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let pkgs = import nixpkgs { inherit system; }; in rec {
-        packages.default = pkgs.buildGoModule {
-          pname = "kallisto";
-          version = "1";
-          src = ./.;
-          vendorHash = "sha256-upIQ9mIuTR0ruiJ6gyJfh+10Ahuic4wixpnbJz5LES4=";
+        packages = {
+          default = pkgs.buildGoModule rec {
+            pname = "kallisto";
+            version = "1";
 
-          buildInputs = with pkgs; [ libsodium ];
+            src = with pkgs.lib.fileset; toSource {
+              root = ./.;
+              fileset = unions [
+                ./go.mod
+                ./go.sum
+                ./main.go
+              ];
+            };
 
-          ldflags = [ "-s" "-w" ];
+            nativeBuildInputs = with pkgs; [ cacert ];
+            buildInputs = with pkgs; [ libsodium ];
+            ldflags = [ "-s" "-w" ];
+            vendorHash = "sha256-6Qy5AN0cH6TJOspuPYUYQjGjFJwchBGg1ngS/4QCGC4=";
+
+            meta.mainProgram = pname;
+          };
+
+          appimage = nix-appimage.bundlers.${system}.default packages.default;
         };
 
         devShells.default = pkgs.mkShell {

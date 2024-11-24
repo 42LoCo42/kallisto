@@ -10,6 +10,8 @@ import (
 	"github.com/42LoCo42/go-zeolite"
 	"github.com/42LoCo42/z85m"
 	"github.com/bwmarrin/discordgo"
+
+	_ "github.com/breml/rootcerts"
 )
 
 func main() {

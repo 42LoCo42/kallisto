@@ -17,6 +17,29 @@
         "type": "indirect"
       }
     },
+    "nix-appimage": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1732447709,
+        "narHash": "sha256-AV7CwYqBNuNAmlI4VheMhwHegbxRwjRBmtoQvhm6yCo=",
+        "owner": "42LoCo42",
+        "repo": "nix-appimage",
+        "rev": "f7790258bb672d54b31d0e6f48a9ab941c5107e7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "42LoCo42",
+        "repo": "nix-appimage",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1732014248,
@@ -34,6 +57,7 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
+        "nix-appimage": "nix-appimage",
         "nixpkgs": "nixpkgs"
       }
     },
